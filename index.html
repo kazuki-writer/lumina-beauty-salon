@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- 文字コードの指定（日本語が正しく表示されるようにするための設定） -->
+  <meta charset="UTF-8">
+
+  <!-- スマホで見たときに、PC用の縮小表示にならず正しい大きさで表示させるための設定 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>LUMINA BEAUTY SALON｜毛穴・肌質改善フェイシャルサロン（埼玉・浦和）</title>
+
+  <!-- 検索結果に表示される説明文。来店につながるよう、地域名と強みを入れています -->
+  <meta name="description" content="埼玉・浦和のフェイシャルサロン「LUMINA BEAUTY SALON」。毛穴の黒ずみ・開き、肌質改善に特化した施術で素肌に自信を。初回体験4,980円（税込）で受付中。完全予約制・完全個室。">
+
+  <!-- OGP設定：SNSやLINEでURLを共有したときに、タイトルと説明文が表示されるようにする設定 -->
+  <!-- ▼写真素材が決まったら「og:image」タグを追加してください（例: <meta property="og:image" content="https://example.com/ogp.jpg">） -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="LUMINA BEAUTY SALON">
+  <meta property="og:title" content="LUMINA BEAUTY SALON｜毛穴の悩みから、素肌に自信を。">
+  <meta property="og:description" content="埼玉・浦和のフェイシャルサロン。毛穴・肌質改善専門の施術で、初回体験4,980円（税込）で受付中。">
+  <meta name="twitter:card" content="summary">
+
+  <!-- ブラウザのタブに表示されるアイコン（くすみローズの丸に「L」の文字） -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23B97D82'/%3E%3Ctext x='50' y='66' font-size='50' text-anchor='middle' fill='white' font-family='Georgia, serif'%3EL%3C/text%3E%3C/svg%3E">
+
+  <!-- Google Fonts：見出し用の明朝体（Shippori Mincho）と本文用のゴシック体（Noto Sans JP） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!--
+    構造化データ（JSON-LD）：Googleなどの検索エンジンに「美容サロン」であることを伝える設定です。
+    ▼架空店舗のため、住所（町名「若葉町」は浦和区に実在しない架空の町名です）・電話番号は
+    ポートフォリオ用のダミーです。実在の店舗として公開する際は、実際の情報に差し替えてください。
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "name": "LUMINA BEAUTY SALON",
+    "priceRange": "¥¥",
+    "telephone": "048-123-4567",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "若葉町3-7-2 LUMINAビル3F",
+      "addressLocality": "さいたま市浦和区",
+      "addressRegion": "埼玉県",
+      "postalCode": "330-0000",
+      "addressCountry": "JP"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "10:00",
+      "closes": "19:00"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ============================================ -->
+  <!-- 常時表示ヘッダー：ロゴと予約ボタンだけのシンプル構成 -->
+  <!-- LPは「読み進めてもらう」ことが目的なので、ジャンプメニューは置かず、
+       予約導線だけを常に見せています -->
+  <!-- ============================================ -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <p class="site-logo">LUMINA<span class="site-logo-sub">BEAUTY SALON</span></p>
+      <a href="#reserve" class="btn btn-primary btn-sm">初回体験を予約する</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================ -->
+    <!-- 1. ファーストビュー -->
+    <!-- キャッチコピー・初回価格・予約CTAの3つを、開いて3秒で目に入るように
+         写真の下部にまとめて配置しています -->
+    <!-- ============================================ -->
+    <section class="hero" id="top">
+      <img
+        class="hero-media"
+        src="images/hero.jpg"
+        alt="LUMINA BEAUTY SALONでのフェイシャルケアの様子"
+        width="1177" height="744"
+        fetchpriority="high"
+        decoding="async"
+      >
+      <div class="hero-scrim" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <p class="hero-eyebrow">SAITAMA / PORE &amp; SKIN CARE SALON</p>
+        <h1 class="hero-catch">毛穴の悩みから、<br>素肌に自信を。</h1>
+        <p class="hero-lead">毛穴・肌質改善専門のフェイシャルサロン</p>
+
+        <div class="hero-price-badge">
+          <span class="hero-price-badge-label">初めての方限定</span>
+          <span class="hero-price-badge-price">¥4,980<small>（税込）</small></span>
+        </div>
+
+        <div class="hero-cta-group">
+          <a href="#reserve" class="btn btn-primary btn-lg">初回体験を予約する</a>
+          <!-- ▼LINE公式アカウントが用意できたら、下のURL（"#"の部分）を実際のURLに差し替えてください -->
+          <a href="#" class="btn btn-line btn-lg" target="_blank" rel="noopener noreferrer">LINEで相談する</a>
+        </div>
+
+        <p class="hero-note">完全予約制 ・ 完全個室 ・ JR浦和駅より徒歩5分</p>
+      </div>
+
+      <div class="hero-scroll-cue" aria-hidden="true"></div>
+    </section>
+
+    <!-- ポートフォリオ用の架空サイトであることを示す注意書き -->
+    <p class="notice-banner">※本サイトはポートフォリオ制作のために作成した架空の美容サロンLPです。実在する店舗・サービスではありません。</p>
+
+    <!-- ============================================ -->
+    <!-- 2. ユーザーの悩み・共感 -->
+    <!-- ============================================ -->
+    <section class="problem section fade-in" aria-labelledby="problem-title">
+      <div class="section-inner">
+        <p class="section-eyebrow">こんなお悩みありませんか？</p>
+        <h2 class="section-title" id="problem-title">その肌の悩み、<br class="only-sp">諦めていませんか。</h2>
+
+        <!-- ▼悩みを増減したいときは、この li をコピー・削除してください -->
+        <ul class="problem-list">
+          <li>毛穴の黒ずみ・開きが気になる</li>
+          <li>メイクでは隠しきれない凹凸がある</li>
+          <li>スキンケアを変えても肌質が変わらない</li>
+          <li>季節の変わり目に肌が荒れやすい</li>
+          <li>自己流のケアに限界を感じている</li>
+        </ul>
+
+        <p class="problem-bridge">
+          その原因、実は「毛穴に合わないケア」を続けていることかもしれません。<br>
+          LUMINAでは、お一人おひとりの肌質を見極めたうえで、毛穴に本当に必要なケアをご提案します。
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 3. サロンの特徴・選ばれる理由 -->
+    <!-- 単調にならないよう、画像とテキストを左右交互に配置しています -->
+    <!-- ============================================ -->
+    <section class="reason section section-alt" aria-labelledby="reason-title">
+      <div class="section-inner">
+        <p class="section-eyebrow fade-in">Reason to choose</p>
+        <h2 class="section-title fade-in" id="reason-title">LUMINAが選ばれる理由</h2>
+
+        <div class="reason-row reason-row-reverse fade-in">
+          <img class="reason-media" src="images/counseling.jpg" alt="肌診断とカウンセリングの様子" loading="lazy" decoding="async">
+          <div class="reason-body">
+            <span class="reason-number">01</span>
+            <h3 class="reason-title">肌の状態を見極めるカウンセリング</h3>
+            <p>専用機器での肌診断と丁寧なヒアリングにより、肌質・毛穴の状態を客観的に把握。思い込みではなく、データに基づいたケアをご提案します。</p>
+          </div>
+        </div>
+
+        <div class="reason-row fade-in">
+          <img class="reason-media" src="images/treatment.jpg" alt="毛穴集中トリートメントの施術風景" loading="lazy" decoding="async">
+          <div class="reason-body">
+            <span class="reason-number">02</span>
+            <h3 class="reason-title">毛穴に特化したオーダーメイド施術</h3>
+            <p>黒ずみ・開き・たるみなど、毛穴の悩みはタイプによって原因が異なります。肌質に合わせて施術内容を調整し、根本的な変化を目指します。</p>
+          </div>
+        </div>
+
+        <!-- この項目だけ写真の代わりに一言メッセージを見せ、単調な繰り返しを避けています -->
+        <div class="reason-row reason-row-text reason-row-reverse fade-in">
+          <div class="reason-highlight" aria-hidden="true">
+            <span class="reason-highlight-mark">"</span>
+            <p class="reason-highlight-quote">その場で決めなくて<br>大丈夫です。</p>
+          </div>
+          <div class="reason-body">
+            <span class="reason-number">03</span>
+            <h3 class="reason-title">無理な勧誘は一切ありません</h3>
+            <p>体験だけのご来店も歓迎しています。追加メニューやコースをご提案することはありますが、その場でのご契約を求めることはありません。</p>
+          </div>
+        </div>
+
+        <div class="reason-row fade-in">
+          <img class="reason-media" src="images/salon-room.jpg" alt="完全個室の施術ルーム" loading="lazy" decoding="async">
+          <div class="reason-body">
+            <span class="reason-number">04</span>
+            <h3 class="reason-title">完全個室でリラックスできる空間</h3>
+            <p>すべてのお部屋を完全個室でご用意。周りを気にせず、施術中のひとときをゆったりとお過ごしいただけます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 4. 施術メニュー -->
+    <!-- ============================================ -->
+    <section class="menu section" aria-labelledby="menu-title">
+      <div class="section-inner">
+        <p class="section-eyebrow fade-in">Menu</p>
+        <h2 class="section-title fade-in" id="menu-title">施術メニュー</h2>
+
+        <!-- ▼メニューを追加したいときは、この menu-row ブロックをコピーしてください -->
+        <div class="menu-list fade-in">
+          <div class="menu-row">
+            <div class="menu-row-head">
+              <h3 class="menu-row-title">毛穴集中ケアフェイシャル</h3>
+              <span class="menu-row-time">60分</span>
+            </div>
+            <p class="menu-row-desc">黒ずみ・角栓・開き毛穴にアプローチする、当サロンの人気メニュー。クレンジングから保湿まで丁寧に行います。</p>
+          </div>
+
+          <div class="menu-row">
+            <div class="menu-row-head">
+              <h3 class="menu-row-title">肌質改善フェイシャル</h3>
+              <span class="menu-row-time">70分</span>
+            </div>
+            <p class="menu-row-desc">毛穴だけでなく、キメ・ハリ・トーンなど肌全体の底上げを目指す上位メニュー。継続的な変化を実感したい方に。</p>
+          </div>
+
+          <div class="menu-row">
+            <div class="menu-row-head">
+              <h3 class="menu-row-title">乾燥ケア ハンドフェイシャル</h3>
+              <span class="menu-row-time">45分</span>
+            </div>
+            <p class="menu-row-desc">季節の変わり目やゆらぎ肌の方向けに、刺激を抑えたハンドトリートメントで潤いをじっくり補給します。</p>
+          </div>
+
+          <div class="menu-row menu-row-accent">
+            <div class="menu-row-head">
+              <h3 class="menu-row-title"><span class="menu-row-badge">初めての方限定</span>初回限定 体験コース</h3>
+              <span class="menu-row-time">40分</span>
+            </div>
+            <p class="menu-row-desc">肌診断・毛穴集中クレンジング・保湿パックまでを体験できる、初めての方向けのお試しコース。</p>
+          </div>
+        </div>
+
+        <p class="menu-note">※料金の詳細は「料金のご案内」セクションをご覧ください</p>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 5. Before / After -->
+    <!-- ============================================ -->
+    <section class="ba section section-alt" aria-labelledby="ba-title">
+      <div class="section-inner">
+        <p class="section-eyebrow fade-in">Before / After</p>
+        <h2 class="section-title fade-in" id="ba-title">お客様の変化</h2>
+
+        <!-- ▼症例を追加する場合は、この ba-case ブロックごとコピーしてください -->
+        <div class="ba-list">
+          <div class="ba-case fade-in">
+            <div class="ba-images">
+              <div class="ba-image">
+                <img class="ba-photo" src="images/before01.jpg" alt="施術前の頬の毛穴の状態" loading="lazy" decoding="async">
+              </div>
+              <span class="ba-arrow" aria-hidden="true">→</span>
+              <div class="ba-image">
+                <img class="ba-photo" src="images/after01.jpg" alt="毛穴集中ケア3ヶ月後の頬の状態" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <div class="ba-info">
+              <p class="ba-caption">O.Mさん（30代）／毛穴集中ケア 3ヶ月</p>
+              <p class="ba-desc">頬まわりの開き毛穴が気になり来店。月2回のペースで施術を継続し、キメの整った肌へ。</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="ba-disclaimer">※効果には個人差があります。掲載は本人の同意を得ています。</p>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 6. 施術の流れ -->
+    <!-- ============================================ -->
+    <section class="flow section" aria-labelledby="flow-title">
+      <div class="section-inner">
+        <p class="section-eyebrow fade-in">Flow</p>
+        <h2 class="section-title fade-in" id="flow-title">施術の流れ</h2>
+
+        <ol class="flow-list">
+          <li class="flow-step fade-in">
+            <span class="flow-step-number">01</span>
+            <div class="flow-step-body">
+              <h3>ご予約・お問い合わせ</h3>
+              <p>Webまたは LINE から、約30秒でご予約いただけます。</p>
+            </div>
+          </li>
+          <li class="flow-step fade-in">
+            <span class="flow-step-number">02</span>
+            <div class="flow-step-body">
+              <h3>カウンセリング・肌診断</h3>
+              <p>専用機器で肌の状態を可視化し、お悩みやご希望を丁寧にお伺いします。</p>
+            </div>
+          </li>
+          <li class="flow-step fade-in">
+            <span class="flow-step-number">03</span>
+            <div class="flow-step-body">
+              <h3>クレンジング・ウォーミングケア</h3>
+              <p>毛穴を優しく開き、汚れや角栓を浮き上がらせる準備を行います。</p>
+            </div>
+          </li>
+          <li class="flow-step fade-in">
+            <span class="flow-step-number">04</span>
+            <div class="flow-step-body">
+              <h3>毛穴集中トリートメント</h3>
+              <p>肌質に合わせて選定したトリートメントで、毛穴にアプローチします。</p>
+            </div>
+          </li>
+          <li class="flow-step fade-in">
+            <span class="flow-step-number">05</span>
+            <div class="flow-step-body">
+              <h3>鎮静・保湿パック</h3>
+              <p>施術後の肌を落ち着かせ、うるおいをしっかり閉じ込めます。</p>
+            </div>
+          </li>
+          <li class="flow-step fade-in">
+            <span class="flow-step-number">06</span>
+            <div class="flow-step-body">
+              <h3>アフターカウンセリング</h3>
+              <p>肌の変化をご確認いただき、ご自宅でのケア方法もご案内します。</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 7. お客様の声 -->
+    <!-- ============================================ -->
+    <section class="voice section section-alt" aria-labelledby="voice-title">
+      <div class="section-inner">
+        <p class="section-eyebrow fade-in">Voice</p>
+        <h2 class="section-title fade-in" id="voice-title">お客様の声</h2>
+
+        <!-- ▼お客様の声を追加したいときは、この voice-card ブロックをコピーしてください -->
+        <div class="voice-list">
+          <div class="voice-card fade-in">
+            <span class="voice-mark" aria-hidden="true">"</span>
+            <p class="voice-comment">毛穴の開きがずっとコンプレックスでしたが、通ううちにメイクのノリが変わってきたのを実感しています。無理な勧誘もなく、安心して通えます。</p>
+            <div class="voice-footer">
+              <p class="voice-name">A.Yさん<span>（32歳・会社員）</span></p>
+              <p class="voice-rating" aria-label="評価5段階中5">★★★★★</p>
+            </div>
+          </div>
+
+          <div class="voice-card fade-in">
+            <span class="voice-mark" aria-hidden="true">"</span>
+            <p class="voice-comment">カウンセリングがとても丁寧で、自分の肌質を初めてきちんと理解できました。施術中も力加減が心地よく、毎回リラックスできています。</p>
+            <div class="voice-footer">
+              <p class="voice-name">M.Kさん<span>（28歳・美容師）</span></p>
+              <p class="voice-rating" aria-label="評価5段階中5">★★★★★</p>
+            </div>
+          </div>
+
+          <div class="voice-card fade-in">
+            <span class="voice-mark" aria-hidden="true">"</span>
+            <p class="voice-comment">敏感肌でも大丈夫か不安でしたが、丁寧に肌の様子を見ながら施術していただけました。季節の変わり目の肌荒れが減った気がします。</p>
+            <div class="voice-footer">
+              <p class="voice-name">S.Tさん<span>（41歳・パート）</span></p>
+              <p class="voice-rating" aria-label="評価5段階中4">★★★★☆</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="voice-disclaimer">※効果・ご感想には個人差があります。</p>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 8. 料金のご案内 -->
+    <!-- ============================================ -->
+    <section class="price section" id="reserve" aria-labelledby="price-title">
+      <div class="section-inner">
+        <p class="section-eyebrow fade-in">Price</p>
+        <h2 class="section-title fade-in" id="price-title">料金のご案内</h2>
+
+        <div class="price-highlight fade-in">
+          <p class="price-highlight-label">初めての方限定</p>
+          <p class="price-highlight-name">初回限定 体験コース</p>
+          <p class="price-highlight-price">¥4,980<span>（税込）</span></p>
+          <p class="price-highlight-desc">肌診断・毛穴集中クレンジング・保湿パックまでを含む、40分のお試しコースです。</p>
+          <!-- ▼予約フォーム（外部の予約システムやLINE予約など）が決まったら、下のURLを差し替えてください -->
+          <a href="#" class="btn btn-primary btn-lg">このコースを予約する</a>
+        </div>
+
+        <!-- ▼価格を変更したいときは、この table の中身を書き換えてください -->
+        <table class="price-table fade-in">
+          <caption>通常メニュー料金（税込）</caption>
+          <thead>
+            <tr>
+              <th scope="col">メニュー</th>
+              <th scope="col">時間</th>
+              <th scope="col">料金</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="メニュー">毛穴集中ケアフェイシャル</td>
+              <td data-label="時間">60分</td>
+              <td data-label="料金">¥9,800</td>
+            </tr>
+            <tr>
+              <td data-label="メニュー">肌質改善フェイシャル</td>
+              <td data-label="時間">70分</td>
+              <td data-label="料金">¥12,000</td>
+            </tr>
+            <tr>
+              <td data-label="メニュー">乾燥ケア ハンドフェイシャル</td>
+              <td data-label="時間">45分</td>
+              <td data-label="料金">¥7,700</td>
+            </tr>
+            <tr>
+              <td data-label="メニュー">肌質改善コース（全6回）</td>
+              <td data-label="時間">75分 × 6</td>
+              <td data-label="料金">¥64,800</td>
+            </tr>
+            <tr>
+              <td data-label="メニュー">オプション：炭酸パック</td>
+              <td data-label="時間">+10分</td>
+              <td data-label="料金">+¥2,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 9. よくあるご質問 -->
+    <!-- accordion は JavaScript不要の <details> タグで実装しています -->
+    <!-- ============================================ -->
+    <section class="faq section section-alt" aria-labelledby="faq-title">
+      <div class="section-inner">
+        <p class="section-eyebrow fade-in">FAQ</p>
+        <h2 class="section-title fade-in" id="faq-title">よくあるご質問</h2>
+
+        <!-- ▼質問を追加したいときは、この details ブロックをコピーしてください -->
+        <div class="faq-list fade-in">
+          <details class="faq-item">
+            <summary>施術中に痛みはありますか？</summary>
+            <p>刺激を極力抑えた施術を基本としています。肌の状態や部位によって感じ方が異なりますので、施術中に気になる点があればいつでもお申し付けください。</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>どのくらいの頻度で通うのがおすすめですか？</summary>
+            <p>肌質の変化を実感したい場合は、最初の2〜3ヶ月は2週に1回程度のペースをおすすめしています。その後は肌の状態に合わせて間隔を調整していきます。</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>敏感肌でも施術を受けられますか？</summary>
+            <p>カウンセリングで肌の状態を確認したうえで、お一人おひとりに合わせて施術内容を調整します。不安な点は事前にお気軽にご相談ください。</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>予約はいつまでに必要ですか？</summary>
+            <p>ご希望日の3日前までのご予約をおすすめしています。空き状況によっては、前日・当日のご予約も可能ですのでお問い合わせください。</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>駐車場はありますか？</summary>
+            <p>専用駐車場はご用意がございません。近隣のコインパーキングをご利用のうえ、施術時に駐車券をご提示いただければ提携割引を適用いたします。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 10. 店舗情報 -->
+    <!-- ============================================ -->
+    <section class="shop section" aria-labelledby="shop-title">
+      <div class="section-inner">
+        <p class="section-eyebrow fade-in">Access</p>
+        <h2 class="section-title fade-in" id="shop-title">店舗情報</h2>
+
+        <div class="shop-layout fade-in">
+          <!-- ▼実在店舗の地図に差し替える場合は、この div を Google マップの iframe に置き換えてください -->
+          <div class="shop-map photo-placeholder" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+
+          <table class="shop-info">
+            <tbody>
+              <tr>
+                <th scope="row">店舗名</th>
+                <td>LUMINA BEAUTY SALON</td>
+              </tr>
+              <tr>
+                <th scope="row">住所</th>
+                <td>埼玉県さいたま市浦和区若葉町3-7-2<br>LUMINAビル3F</td>
+              </tr>
+              <tr>
+                <th scope="row">アクセス</th>
+                <td>JR京浜東北線 浦和駅 西口より徒歩5分</td>
+              </tr>
+              <tr>
+                <th scope="row">営業時間</th>
+                <td>10:00〜19:00（最終受付 18:00）</td>
+              </tr>
+              <tr>
+                <th scope="row">定休日</th>
+                <td>火曜日・年末年始</td>
+              </tr>
+              <tr>
+                <th scope="row">電話番号</th>
+                <td><a href="tel:0481234567">048-123-4567</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 11. 最終CTA -->
+    <!-- ============================================ -->
+    <section class="final-cta section fade-in" aria-labelledby="final-cta-title">
+      <div class="section-inner">
+        <h2 class="final-cta-title" id="final-cta-title">まずは体験から。<br>あなたの"素肌"に、自信を。</h2>
+        <p class="final-cta-lead">初めての方限定 ¥4,980（税込）でお試しいただけます。</p>
+
+        <div class="final-cta-buttons">
+          <a href="#reserve" class="btn btn-primary btn-lg">初回体験を予約する</a>
+          <!-- ▼LINE公式アカウントが用意できたら、下のURLを実際のURLに差し替えてください -->
+          <a href="#" class="btn btn-line btn-lg" target="_blank" rel="noopener noreferrer">LINEで相談する</a>
+        </div>
+
+        <ul class="final-cta-points">
+          <li>無理な勧誘なし</li>
+          <li>完全個室</li>
+          <li>浦和駅より徒歩5分</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================ -->
+  <!-- フッター -->
+  <!-- ============================================ -->
+  <footer class="footer">
+    <p class="footer-logo">LUMINA BEAUTY SALON</p>
+    <p class="footer-address">埼玉県さいたま市浦和区若葉町3-7-2 LUMINAビル3F</p>
+    <p class="footer-copyright">&copy; <span id="current-year">2026</span> LUMINA BEAUTY SALON</p>
+    <p class="footer-disclaimer">※本サイトはポートフォリオ制作のために作成した架空の美容サロンのLPです。実在する店舗・サービスとは関係ありません。</p>
+  </footer>
+
+  <!-- ============================================ -->
+  <!-- スマホ用の固定予約バー：常に画面下部に予約導線を表示します -->
+  <!-- ============================================ -->
+  <div class="mobile-cta-bar" aria-hidden="false">
+    <a href="#" class="btn btn-line btn-block" target="_blank" rel="noopener noreferrer">LINEで相談</a>
+    <a href="#reserve" class="btn btn-primary btn-block">初回体験を予約する</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

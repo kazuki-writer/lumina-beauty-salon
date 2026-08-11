@@ -1,0 +1,1351 @@
+/* ============================================================
+   style.css
+   「LUMINA BEAUTY SALON」LPのデザインを決めるファイルです。
+
+   上から順に、
+   1. 色・余白などの共通設定（ここを変えるだけで全体の印象を変えられます）
+   2. ページ全体の基本設定
+   3. 各パーツ（ヘッダー・ヒーロー・各セクション…）ごとの見た目
+   4. 画面が広いとき（タブレット・PC）の調整
+   という構成になっています。
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   1. 共通設定
+   ------------------------------------------------------------ */
+:root {
+  /* ベースカラー：白〜ウォームアイボリー */
+  --color-bg: #ffffff;
+  --color-bg-warm: #faf5f0;      /* セクションの区切り用、薄いアイボリー */
+  --color-bg-deep: #f1e6dd;      /* バッジやプレースホルダーに使う、やや濃いめのアイボリー */
+
+  /* アクセントカラー：くすみローズ（女性らしさと上品さを両立） */
+  --color-accent: #b97d82;
+  --color-accent-dark: #9c6267;  /* ホバー時などに使う、少し濃いローズ */
+  --color-accent-soft: #f3e3e1;  /* 淡いローズ、バッジ背景などに使用 */
+
+  /* LINEボタン用（LINE公式カラーに寄せつつ、彩度を少し抑えている） */
+  --color-line: #06c755;
+  --color-line-dark: #05a648;
+
+  /* 文字色 */
+  --color-ink: #2e2a26;          /* 基本の文字色。黒ではなく温かみのある濃茶 */
+  --color-ink-soft: #6b6259;     /* 補足文などに使う、少し薄い文字色 */
+
+  --color-border: #e8ddd4;
+
+  --font-serif: "Shippori Mincho", "Hiragino Mincho ProN", serif;
+  --font-sans: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+
+  --max-width: 1080px;
+  --max-width-narrow: 720px;
+
+  --radius-s: 4px;
+  --radius-m: 10px;
+  --radius-photo: 3px; /* 写真は角丸を控えめにして、ギャラリーのような上品な見せ方にする */
+
+  --shadow-soft: 0 10px 30px rgba(46, 42, 38, 0.08);
+}
+
+
+/* ------------------------------------------------------------
+   2. ページ全体の基本設定
+   ------------------------------------------------------------ */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 64px; /* 固定ヘッダーの高さぶん、ジャンプ先を下にずらす */
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: var(--color-bg);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: var(--font-serif);
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+ul, ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+/* 内側の余白・最大幅をそろえるための共通ラッパー */
+.section-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 64px 0;
+}
+
+.section-alt {
+  background-color: var(--color-bg-warm);
+}
+
+.section-eyebrow {
+  display: block;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  color: var(--color-accent);
+  margin-bottom: 10px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 0 auto 40px;
+  max-width: var(--max-width-narrow);
+}
+
+/* PC幅では見えるが、スマホでは非表示にしたい要素用（今回は逆パターンで使用） */
+.only-sp {
+  display: inline;
+}
+
+@media (min-width: 700px) {
+  .only-sp {
+    display: none;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   装飾プレースホルダー（店舗情報の地図など、写真ではない図版に使用）
+   ------------------------------------------------------------ */
+.photo-placeholder {
+  background: linear-gradient(135deg, var(--color-bg-deep) 0%, #e3cdbc 100%);
+  color: rgba(46, 42, 38, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+
+/* ------------------------------------------------------------
+   共通ボタン
+   ------------------------------------------------------------ */
+.btn {
+  display: inline-block;
+  padding: 15px 32px;
+  border-radius: var(--radius-s);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-dark);
+}
+
+.btn-line {
+  background-color: var(--color-line);
+  color: #ffffff;
+}
+
+.btn-line:hover {
+  background-color: var(--color-line-dark);
+}
+
+.btn-sm {
+  padding: 9px 18px;
+  font-size: 0.8rem;
+}
+
+.btn-lg {
+  padding: 17px 30px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+
+/* ------------------------------------------------------------
+   常時表示ヘッダー
+   ------------------------------------------------------------ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.site-logo {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: var(--color-ink);
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.site-logo-sub {
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+  color: var(--color-ink-soft);
+}
+
+
+/* ------------------------------------------------------------
+   1. ファーストビュー
+   ------------------------------------------------------------ */
+.hero {
+  position: relative;
+  min-height: 86svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 28% 38%; /* 写真内の人物の顔が中心に来るよう調整 */
+}
+
+/* 写真の視認性を保ちつつ文字を読みやすくするための、下から上への影 */
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(46, 42, 38, 0) 28%, rgba(35, 27, 24, 0.7) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 0 20px 52px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+.hero-catch {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+/* キャッチコピー・価格・CTAを3秒で把握できるよう、説明文は一行だけに絞っている */
+.hero-lead {
+  margin: 0 0 18px;
+  font-size: 0.88rem;
+  opacity: 0.95;
+}
+
+.hero-price-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background-color: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-m);
+  padding: 10px 24px;
+  margin-bottom: 22px;
+}
+
+.hero-price-badge-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.hero-price-badge-price {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+}
+
+.hero-price-badge-price small {
+  font-size: 0.65rem;
+  font-family: var(--font-sans);
+  margin-left: 2px;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 360px;
+  margin: 0 auto 18px;
+}
+
+.hero-note {
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  opacity: 0.85;
+  margin-bottom: 0;
+}
+
+/* 控えめなスクロール誘導。動きは一往復のみで主張しすぎないようにしている */
+.hero-scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  width: 1px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.6);
+  transform: translateX(-50%);
+}
+
+.hero-scroll-cue::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -2.5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  animation: scroll-cue 2.2s ease-in-out infinite;
+}
+
+@keyframes scroll-cue {
+  0% { top: 0; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { top: 28px; opacity: 0; }
+}
+
+
+/* ------------------------------------------------------------
+   架空サイトである旨の注意書き（ファーストビュー直後）
+   ボタンと誤認されないよう、角丸・影のない横長の帯にしている
+   ------------------------------------------------------------ */
+.notice-banner {
+  margin: 0;
+  padding: 12px 20px;
+  background-color: var(--color-accent-soft);
+  color: var(--color-ink);
+  text-align: center;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+@media (min-width: 700px) {
+  .notice-banner {
+    padding: 14px 20px;
+    font-size: 0.85rem;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   2. ユーザーの悩み・共感
+   ------------------------------------------------------------ */
+.problem-list {
+  max-width: var(--max-width-narrow);
+  margin: 0 auto 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.problem-list li {
+  position: relative;
+  padding: 14px 8px 14px 30px;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.95rem;
+}
+
+.problem-list li:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.problem-list li::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 22px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+}
+
+.problem-bridge {
+  max-width: var(--max-width-narrow);
+  margin: 0 auto;
+  text-align: center;
+  color: var(--color-ink-soft);
+  font-size: 0.92rem;
+}
+
+
+/* ------------------------------------------------------------
+   3. サロンの特徴・選ばれる理由
+   ------------------------------------------------------------ */
+/* 画像とテキストの2カラムはgridで組む。flexの%指定はimg要素と相性が悪く、
+   テキスト側が極端に圧縮されて日本語が1文字ずつ折り返される不具合が起きたため */
+.reason-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: var(--max-width-narrow);
+  margin: 0 auto 44px;
+}
+
+.reason-row:last-child {
+  margin-bottom: 0;
+}
+
+.reason-media {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-photo);
+}
+
+/* 「無理な勧誘なし」だけは写真の代わりに一言メッセージを見せ、単調な繰り返しを避けている */
+.reason-highlight {
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-accent-soft);
+  border-radius: var(--radius-m);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.reason-highlight-mark {
+  font-family: var(--font-serif);
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--color-accent);
+  opacity: 0.5;
+  margin-bottom: -6px;
+}
+
+.reason-highlight-quote {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-accent-dark);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.reason-number {
+  display: block;
+  font-family: var(--font-serif);
+  color: var(--color-accent);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+
+.reason-title {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+}
+
+.reason-body {
+  min-width: 0; /* グリッド内でテキストがはみ出したり縮みすぎたりしないようにする保険 */
+}
+
+.reason-body p {
+  color: var(--color-ink-soft);
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+
+/* ------------------------------------------------------------
+   4. 施術メニュー
+   ------------------------------------------------------------ */
+/* サロンの公式メニュー表のように、写真やカードを使わず罫線とタイポグラフィで見せている */
+.menu-list {
+  max-width: var(--max-width-narrow);
+  margin: 0 auto;
+  border-top: 1px solid var(--color-border);
+}
+
+.menu-row {
+  padding: 24px 2px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.menu-row-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-bottom: 8px;
+}
+
+.menu-row-title {
+  font-size: 1.05rem;
+}
+
+.menu-row-time {
+  flex-shrink: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--color-ink-soft);
+  white-space: nowrap;
+}
+
+.menu-row-desc {
+  color: var(--color-ink-soft);
+  font-size: 0.88rem;
+  margin-bottom: 0;
+}
+
+.menu-row-accent .menu-row-title {
+  color: var(--color-accent-dark);
+}
+
+.menu-row-badge {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: #ffffff;
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+  padding: 3px 9px;
+  border-radius: 999px;
+  margin-right: 8px;
+  position: relative;
+  top: -2px;
+}
+
+.menu-note {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--color-ink-soft);
+  margin: 22px 0 0;
+}
+
+
+/* ------------------------------------------------------------
+   5. Before / After
+   写真がこのセクションの主役になるよう、他セクションより幅広の
+   コンテナ（.ba-list）を使い、見出しとの間隔も少し詰めている
+   ------------------------------------------------------------ */
+.ba .section-title {
+  margin-bottom: 28px;
+}
+
+.ba-list {
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+/* スマホでは横並びにすると写真が小さくなりすぎるため、縦並びにする */
+.ba-images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.ba-image {
+  width: 100%;
+}
+
+.ba-photo {
+  width: 100%;
+  aspect-ratio: 7 / 8; /* 元写真に近い比率で、肌部分を過度にトリミングしない */
+  object-fit: cover;
+  object-position: 50% 0%; /* 上端を基準にトリミングし、写真左上のBefore/Afterの文字が切れないようにする */
+  border-radius: var(--radius-photo);
+  display: block;
+}
+
+/* BeforeとAfterの間の矢印。変化の方向を一目で伝える。スマホは縦並びのため下向きにする */
+.ba-arrow {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  transform: rotate(90deg);
+}
+
+.ba-caption {
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--color-ink);
+  margin-bottom: 6px;
+}
+
+.ba-desc {
+  color: var(--color-ink-soft);
+  font-size: 0.86rem;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+.ba-disclaimer {
+  max-width: 460px;
+  margin: 26px auto 0;
+  text-align: center;
+  font-size: 0.76rem;
+  color: var(--color-ink-soft);
+  opacity: 0.9;
+}
+
+
+/* ------------------------------------------------------------
+   6. 施術の流れ
+   ------------------------------------------------------------ */
+.flow-list {
+  position: relative;
+  max-width: var(--max-width-narrow);
+  margin: 0 auto;
+}
+
+.flow-step {
+  position: relative;
+  display: flex;
+  gap: 18px;
+  padding-bottom: 34px;
+}
+
+/* ステップ同士をつなぐ縦の線 */
+.flow-step::before {
+  content: "";
+  position: absolute;
+  left: 19px;
+  top: 42px;
+  bottom: 0;
+  width: 1px;
+  background-color: var(--color-border);
+}
+
+.flow-step:last-child::before {
+  display: none;
+}
+
+.flow-step:last-child {
+  padding-bottom: 0;
+}
+
+.flow-step-number {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent-dark);
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flow-step-body h3 {
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+
+.flow-step-body p {
+  color: var(--color-ink-soft);
+  font-size: 0.88rem;
+  margin-bottom: 0;
+}
+
+
+/* ------------------------------------------------------------
+   7. お客様の声
+   ------------------------------------------------------------ */
+.voice-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  max-width: var(--max-width-narrow);
+  margin: 0 auto 24px;
+}
+
+/* カード枠は使わず、引用符と余白だけで「体験談」らしさを出している */
+.voice-card {
+  padding: 0;
+}
+
+.voice-mark {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 3.4rem;
+  line-height: 1;
+  color: var(--color-accent);
+  opacity: 0.4;
+  margin-bottom: -4px;
+}
+
+.voice-comment {
+  font-size: 0.92rem;
+  color: var(--color-ink);
+  line-height: 1.9;
+  margin-bottom: 16px;
+}
+
+.voice-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-border);
+}
+
+.voice-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-bottom: 0;
+}
+
+.voice-name span {
+  font-weight: 400;
+  color: var(--color-ink-soft);
+  font-size: 0.78rem;
+  margin-left: 2px;
+}
+
+.voice-rating {
+  flex-shrink: 0;
+  color: var(--color-accent);
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+  margin-bottom: 0;
+}
+
+.voice-disclaimer {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--color-ink-soft);
+  margin: 0;
+}
+
+
+/* ------------------------------------------------------------
+   8. 料金のご案内
+   ------------------------------------------------------------ */
+.price-highlight {
+  max-width: var(--max-width-narrow);
+  margin: 0 auto 40px;
+  text-align: center;
+  background: linear-gradient(180deg, var(--color-accent-soft) 0%, #ffffff 100%);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-m);
+  padding: 32px 24px;
+}
+
+.price-highlight-label {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: #ffffff;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.price-highlight-name {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+
+.price-highlight-price {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  color: var(--color-accent-dark);
+  margin-bottom: 10px;
+}
+
+.price-highlight-price span {
+  font-size: 0.9rem;
+  font-family: var(--font-sans);
+  color: var(--color-ink-soft);
+  margin-left: 4px;
+}
+
+.price-highlight-desc {
+  color: var(--color-ink-soft);
+  font-size: 0.85rem;
+  max-width: 420px;
+  margin: 0 auto 22px;
+}
+
+.price-highlight .btn {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.price-table {
+  width: 100%;
+  max-width: var(--max-width-narrow);
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.price-table caption {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+  margin-bottom: 14px;
+}
+
+/* スマホでは表を「カード状」に積み上げて見せる */
+.price-table thead {
+  display: none;
+}
+
+.price-table tr {
+  display: block;
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-s);
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+
+.price-table td {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 0;
+  font-size: 0.88rem;
+}
+
+.price-table td::before {
+  content: attr(data-label);
+  color: var(--color-ink-soft);
+  font-size: 0.78rem;
+}
+
+
+/* ------------------------------------------------------------
+   9. よくあるご質問
+   ------------------------------------------------------------ */
+.faq-list {
+  max-width: var(--max-width-narrow);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.faq-item {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-s);
+  padding: 4px 18px;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 16px 28px 16px 0;
+  position: relative;
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* 開閉状態を「＋」と「－」で表現するアイコン */
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 14px;
+  font-size: 1.2rem;
+  color: var(--color-accent);
+  transition: transform 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+  content: "−";
+}
+
+.faq-item p {
+  color: var(--color-ink-soft);
+  font-size: 0.86rem;
+  padding-bottom: 18px;
+  margin-bottom: 0;
+}
+
+
+/* ------------------------------------------------------------
+   10. 店舗情報
+   ------------------------------------------------------------ */
+.shop-layout {
+  max-width: var(--max-width-narrow);
+  margin: 0 auto;
+}
+
+.shop-map {
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-photo);
+  margin-bottom: 24px;
+}
+
+.shop-info {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.shop-info tr {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.shop-info tr:last-child {
+  border-bottom: none;
+}
+
+.shop-info th,
+.shop-info td {
+  text-align: left;
+  padding: 14px 10px;
+  font-size: 0.88rem;
+  font-weight: normal;
+  vertical-align: top;
+}
+
+.shop-info th {
+  width: 84px;
+  color: var(--color-ink-soft);
+  white-space: nowrap;
+}
+
+.shop-info td a {
+  color: var(--color-accent-dark);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+
+/* ------------------------------------------------------------
+   11. 最終CTA
+   ------------------------------------------------------------ */
+.final-cta {
+  background-color: var(--color-ink);
+  color: #ffffff;
+  text-align: center;
+}
+
+.final-cta-title {
+  color: #ffffff;
+  font-size: 1.4rem;
+  margin-bottom: 14px;
+}
+
+.final-cta-lead {
+  opacity: 0.85;
+  font-size: 0.9rem;
+  margin-bottom: 26px;
+}
+
+.final-cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 360px;
+  margin: 0 auto 24px;
+}
+
+.final-cta-points {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  font-size: 0.78rem;
+  opacity: 0.85;
+}
+
+.final-cta-points li {
+  position: relative;
+  padding-left: 14px;
+}
+
+.final-cta-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+}
+
+
+/* ------------------------------------------------------------
+   フッター
+   ------------------------------------------------------------ */
+.footer {
+  text-align: center;
+  padding: 36px 20px 100px; /* 下側はスマホ固定バーの高さぶん広めに確保 */
+  background-color: #241f1c;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-logo {
+  font-family: var(--font-serif);
+  color: #ffffff;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.footer-address,
+.footer-copyright {
+  font-size: 0.78rem;
+  margin-bottom: 4px;
+}
+
+.footer-disclaimer {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 12px auto 0;
+  max-width: 480px;
+}
+
+
+/* ------------------------------------------------------------
+   スマホ固定予約バー
+   ------------------------------------------------------------ */
+.mobile-cta-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  display: flex;
+  gap: 8px;
+  padding: 10px 14px;
+  background-color: rgba(255, 255, 255, 0.96);
+  border-top: 1px solid var(--color-border);
+  box-shadow: 0 -6px 18px rgba(46, 42, 38, 0.08);
+}
+
+.mobile-cta-bar .btn {
+  padding: 13px 10px;
+  font-size: 0.82rem;
+}
+
+
+/* ------------------------------------------------------------
+   スクロールで表示されるフェードイン演出
+   （表示・非表示の切り替えはscript.jsが担当。ここでは見た目だけ定義）
+   ------------------------------------------------------------ */
+.fade-in {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* グリッド内の要素は少しずつ時間差で表示し、単調な動きを避ける */
+.reason-row:nth-child(2) { transition-delay: 0.05s; }
+.reason-row:nth-child(3) { transition-delay: 0.1s; }
+.reason-row:nth-child(4) { transition-delay: 0.15s; }
+
+.voice-card:nth-child(2) { transition-delay: 0.05s; }
+.voice-card:nth-child(3) { transition-delay: 0.1s; }
+
+/* 動きを苦手とするユーザーへの配慮（OS側の設定を尊重する） */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-scroll-cue::after {
+    animation: none;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   3. タブレット・PC向けの調整
+   （スマホ用のスタイルを基本にして、画面が広い場合だけ上書きします）
+   ------------------------------------------------------------ */
+@media (min-width: 700px) {
+  .section {
+    padding: 96px 0;
+  }
+
+  .section-title {
+    font-size: 1.9rem;
+  }
+
+  .hero {
+    min-height: 92svh;
+  }
+
+  .hero-content {
+    padding-bottom: 88px;
+  }
+
+  .hero-catch {
+    font-size: 3rem;
+  }
+
+  .hero-lead {
+    font-size: 1rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: row;
+    justify-content: center;
+    max-width: none;
+  }
+
+  .hero-cta-group .btn {
+    width: auto;
+    min-width: 220px;
+  }
+
+  /* 選ばれる理由：画像50%・テキスト50%の2カラム。1件ごとに左右を入れ替える */
+  .reason-row {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 56px;
+    max-width: 1100px;
+    margin-bottom: 64px;
+  }
+
+  /* DOMの順番はどの行も「画像→本文」のまま。表示順だけをorderで入れ替える */
+  .reason-row-reverse > .reason-media,
+  .reason-row-reverse > .reason-highlight {
+    order: 2;
+  }
+
+  .reason-row-reverse > .reason-body {
+    order: 1;
+  }
+
+  /* Before/Afterはこのセクションの主役なので、他セクションより広いコンテナで大きく見せる */
+  .ba-list {
+    max-width: 680px;
+  }
+
+  .ba .section-title {
+    margin-bottom: 32px;
+  }
+
+  .ba-images {
+    flex-direction: row;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 28px;
+  }
+
+  .ba-arrow {
+    width: 46px;
+    height: 46px;
+    font-size: 1.35rem;
+    transform: rotate(0deg);
+  }
+
+  .ba-caption {
+    font-size: 1.05rem;
+  }
+
+  .ba-disclaimer {
+    max-width: none;
+  }
+
+  .voice-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* 料金表：PCでは本来の表組みらしい見た目に戻す */
+  .price-table thead {
+    display: table-header-group;
+  }
+
+  .price-table tr {
+    display: table-row;
+    border: none;
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0;
+    padding: 0;
+    margin-bottom: 0;
+    background-color: transparent;
+  }
+
+  .price-table th,
+  .price-table td {
+    display: table-cell;
+    padding: 14px 12px;
+  }
+
+  .price-table thead th {
+    text-align: left;
+    font-size: 0.82rem;
+    color: var(--color-ink-soft);
+    font-weight: normal;
+    border-bottom: 2px solid var(--color-ink);
+  }
+
+  .price-table td::before {
+    content: none;
+  }
+
+  .price-table td:last-child,
+  .price-table thead th:last-child {
+    text-align: right;
+  }
+
+  .shop-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    max-width: none;
+  }
+
+  .shop-map {
+    margin-bottom: 0;
+  }
+
+  .final-cta-buttons {
+    flex-direction: row;
+    justify-content: center;
+    max-width: none;
+  }
+
+  .final-cta-buttons .btn {
+    width: auto;
+    min-width: 220px;
+  }
+
+  /* PC幅ではスマホ用の固定予約バーは不要（常時表示ヘッダーに予約ボタンがあるため） */
+  .mobile-cta-bar {
+    display: none;
+  }
+
+  .footer {
+    padding: 48px 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-catch {
+    font-size: 3.4rem;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   ホバーできる環境（マウス操作のPCなど）だけに適用するホバー演出。
+   タッチ操作のスマホで「タップしたまま」になる誤作動を防いでいます。
+   ------------------------------------------------------------ */
+@media (hover: hover) {
+  .menu-row {
+    transition: background-color 0.2s ease;
+  }
+
+  .menu-row:hover {
+    background-color: var(--color-bg-warm);
+  }
+
+  .faq-item summary:hover {
+    color: var(--color-accent-dark);
+  }
+
+  .reason-media,
+  .ba-photo,
+  .shop-map {
+    transition: transform 0.3s ease;
+  }
+
+  .reason-row:hover .reason-media,
+  .ba-image:hover .ba-photo,
+  .shop-map:hover {
+    transform: scale(1.03);
+  }
+}
